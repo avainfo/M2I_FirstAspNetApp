@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\M2I_FirstAspNetApp.props" />
-</Project>
