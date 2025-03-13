@@ -12,8 +12,7 @@
 *.userprefs
 
 # Build results
-*/bin/
-*/obj/*
+M2I_FirstAspNetApp/obj/Debug/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
