@@ -1,4 +1,4 @@
-﻿@model PageViewModel<List<Contact>, Contact>
+﻿@model PageViewModel<List<Todo>, Todo>
 
 @{
     ViewData["Title"] = "Contacts";
@@ -6,21 +6,19 @@
 
 <h2>Contacts</h2>
 
-<form asp-action="Add" method="post">
-    <input type="text" asp-for="ItemType.Name">
-    <input type="text" asp-for="ItemType.Email">
-    <input type="text" asp-for="ItemType.Phone">
+<form asp-action="AddTask" method="post">
+    <input type="text" name="title">
     <button type="submit">Ajouter</button>
 </form>
 
 <ul>
-    @foreach (Contact contact in Model.ItemList)
+    @foreach (Todo todo in Model.ItemList)
     {
         <li>
-            [@contact.Id] @contact.Name - @contact.Email - @contact.Phone
+            [@todo.Id] @todo.Title - @todo.IsDone
             <form style="display: inline">
-                <input type="hidden" name="id" value="@contact.Id">
-                <button asp-action="Delete">Supprimer</button>
+                <input type="hidden" name="id" value="@todo.Id">
+                <button asp-action="EndTask">Terminer</button>
             </form>
         </li>
     }
