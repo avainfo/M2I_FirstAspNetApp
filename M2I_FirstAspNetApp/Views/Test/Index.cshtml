@@ -1,0 +1,21 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "TestController";
+}
+
+<h2>Index</h2>
+
+<form asp-action="Index" method="post">
+    <input type="text" name="name"/>
+    <input type="email" name="email" />
+    <input type="password" name="password" />
+    <button type="submit">Envoyer</button>
+</form>
+
+<ul>
+    @foreach (string name in Model)
+    {
+        <li>@(name.ToUpper())</li>
+    }
+</ul>

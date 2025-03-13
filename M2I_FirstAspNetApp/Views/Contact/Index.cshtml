@@ -1,0 +1,27 @@
+﻿@model PageViewModel
+
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<h2>Contacts</h2>
+
+<form asp-action="Add" method="post">
+    <input type="text" asp-for="Contact.Name">
+    <input type="text" asp-for="Contact.Email">
+    <input type="text" asp-for="Contact.Phone">
+    <button type="submit">Ajouter</button>
+</form>
+
+<ul>
+    @foreach (Contact contact in Model.Contacts)
+    {
+        <li>
+            [@contact.Id] @contact.Name - @contact.Email - @contact.Phone
+            <form style="display: inline">
+                <input type="hidden" name="id" value="@contact.Id">
+                <button asp-action="Delete">Supprimer</button>
+            </form>
+        </li>
+    }
+</ul>
